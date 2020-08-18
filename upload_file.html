@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<form action="http://localhost:10086/update" method="POST" enctype="multipart/form-data">
+		<p>
+			<img width="80" src="" alt="">
+			<input type="file" name="photo">
+		</p>
+		<p>
+			<input type="text" name="desc" placeholder="请输描述信息">
+		</p>
+		<button type="submit">提交</button>
+	</form>
+</body>
+
+</html>
+
+<script>
+	let $img = document.getElementsByTagName("img")[0];
+	let $input = document.getElementsByName("photo")[0];
+	$input.addEventListener("change", changeHandler);
+	function changeHandler() {
+		//显示选中的图片
+		let f = $input.files[0];
+		let src = window.URL.createObjectURL(f);
+		$img.src = src;
+	}
+</script>
